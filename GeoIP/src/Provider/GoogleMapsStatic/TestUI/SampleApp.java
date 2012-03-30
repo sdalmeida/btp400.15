@@ -291,7 +291,9 @@ private void initComponents() {
   // Generated using JFormDesigner non-commercial license
   dialogPane = new JPanel();
   contentPanel = new JPanel();
-  panel1 = new JPanel();
+  
+  panel1 = new JPanel( new GridBagLayout());
+  
   label2 = new JLabel();
   ttfSizeW = new JTextField();
   label4 = new JLabel();
@@ -316,12 +318,13 @@ private void initComponents() {
   progressBar = new JProgressBar();
   lblProgressStatus = new JLabel();
 
+  
   //======== this ========
-  setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-  setTitle("Google Static Maps");
-  setIconImage(null);
+
+  
   
 }
+
 
 // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 // Generated using JFormDesigner non-commercial license
