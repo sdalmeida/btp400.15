@@ -1,7 +1,7 @@
 /*
  * Created by JFormDesigner on Mon Apr 21 12:50:34 EDT 2008
  */
-// s
+
 package Provider.GoogleMapsStatic.TestUI;
 
 import Provider.GoogleMapsStatic.*;
@@ -26,13 +26,11 @@ import java.text.*;
 import java.util.concurrent.*;
 
 /** @author nazmul idris */
-@SuppressWarnings("serial")
 public class SampleApp extends JFrame {
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // data members
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 /** reference to task */
-@SuppressWarnings("rawtypes")
 private SimpleTask _task;
 /** this might be null. holds the image to display in a popup */
 private BufferedImage _img;
@@ -72,7 +70,7 @@ private void doInit() {
 }
 
 /** create a test task and wire it up with a task handler that dumps output to the textarea */
-@SuppressWarnings({ "unchecked", "rawtypes" })
+@SuppressWarnings("unchecked")
 private void _setupTask() {
 
   TaskExecutorIF<ByteBuffer> functor = new TaskExecutorAdapter<ByteBuffer>() {
@@ -291,9 +289,7 @@ private void initComponents() {
   // Generated using JFormDesigner non-commercial license
   dialogPane = new JPanel();
   contentPanel = new JPanel();
-  
-  panel1 = new JPanel( new GridBagLayout());
-  
+  panel1 = new JPanel();
   label2 = new JLabel();
   ttfSizeW = new JTextField();
   label4 = new JLabel();
@@ -318,13 +314,194 @@ private void initComponents() {
   progressBar = new JProgressBar();
   lblProgressStatus = new JLabel();
 
-  
   //======== this ========
+  setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  setTitle("BTP400 - Google Maps Viewer v1.0 - Simon de Almeida");
+  setIconImage(null);
+  Container contentPane = getContentPane();
+  contentPane.setLayout(new BorderLayout());
 
-  
-  
+  //======== dialogPane ========
+  {
+  	dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
+  	dialogPane.setOpaque(false);
+  	dialogPane.setLayout(new BorderLayout());
+
+  	//======== contentPanel ========
+  	{
+  		contentPanel.setOpaque(false);
+  		contentPanel.setLayout(new TableLayout(new double[][] {
+  			{TableLayout.FILL},
+  			{TableLayout.PREFERRED, TableLayout.FILL, TableLayout.PREFERRED}}));
+  		((TableLayout)contentPanel.getLayout()).setHGap(5);
+  		((TableLayout)contentPanel.getLayout()).setVGap(5);
+
+  		//======== panel1 ========
+  		{
+  			panel1.setOpaque(false);
+  			panel1.setBorder(new CompoundBorder(
+  				new TitledBorder("Google Maps Configuration"),
+  				Borders.DLU2_BORDER));
+  			
+  			panel1.setLayout(new TableLayout(new double[][] {
+  				{0.17, 0.17, 0.17, 0.17, 0.05, TableLayout.FILL},
+  				{TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED}}));
+  			
+  			((TableLayout)panel1.getLayout()).setHGap(5);
+  			((TableLayout)panel1.getLayout()).setVGap(5);
+
+  			//---- label2 ----
+  			label2.setText("Size Width");
+  			label2.setHorizontalAlignment(SwingConstants.RIGHT);
+  			//panel1.add(label2, new TableLayoutConstraints(0, 0, 0, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfSizeW ----
+  			ttfSizeW.setText("512");
+  			//panel1.add(ttfSizeW, new TableLayoutConstraints(1, 0, 1, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- label4 ----
+  			label4.setText("Latitude");
+  			label4.setHorizontalAlignment(SwingConstants.RIGHT);
+  			panel1.add(label4, new TableLayoutConstraints(0, 0, 0, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfLat ----
+  			ttfLat.setText("38.931099");
+  			panel1.add(ttfLat, new TableLayoutConstraints(1, 0, 1, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- btnGetMap ----
+  			btnGetMap.setText("Get Map");
+  			btnGetMap.setHorizontalAlignment(SwingConstants.LEFT);
+  			btnGetMap.setMnemonic('G');
+  			btnGetMap.addActionListener(new ActionListener() {
+  				public void actionPerformed(ActionEvent e) {
+  					startTaskAction();
+  				}
+  			});
+  			panel1.add(btnGetMap, new TableLayoutConstraints(5, 0, 5, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- label3 ----
+  			label3.setText("Size Height");
+  			label3.setHorizontalAlignment(SwingConstants.RIGHT);
+  			//panel1.add(label3, new TableLayoutConstraints(0, 1, 0, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfSizeH ----
+  			ttfSizeH.setText("512");
+  			//panel1.add(ttfSizeH, new TableLayoutConstraints(1, 1, 1, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- label5 ----
+  			label5.setText("Longitude");
+  			label5.setHorizontalAlignment(SwingConstants.RIGHT);
+  			panel1.add(label5, new TableLayoutConstraints(0, 1, 0, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfLon ----
+  			ttfLon.setText("-77.3489");
+  			panel1.add(ttfLon, new TableLayoutConstraints(1, 1, 1, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- btnQuit ----
+  			btnQuit.setText("Quit");
+  			btnQuit.setMnemonic('Q');
+  			btnQuit.setHorizontalAlignment(SwingConstants.LEFT);
+  			btnQuit.setHorizontalTextPosition(SwingConstants.RIGHT);
+  			btnQuit.addActionListener(new ActionListener() {
+  				public void actionPerformed(ActionEvent e) {
+  					quitProgram();
+  				}
+  			});
+  			panel1.add(btnQuit, new TableLayoutConstraints(5, 1, 5, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- label1 ----
+  			label1.setText("License Key");
+  			label1.setHorizontalAlignment(SwingConstants.RIGHT);
+  			//panel1.add(label1, new TableLayoutConstraints(0, 2, 0, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfLicense ----
+  			ttfLicense.setToolTipText("Enter your own URI for a file to download in the background");
+  			//panel1.add(ttfLicense, new TableLayoutConstraints(1, 2, 1, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- label6 ----
+  			label6.setText("Zoom");
+  			label6.setHorizontalAlignment(SwingConstants.RIGHT);
+  			//panel1.add(label6, new TableLayoutConstraints(2, 2, 2, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfZoom ----
+  			ttfZoom.setText("14");
+  			//panel1.add(ttfZoom, new TableLayoutConstraints(3, 2, 3, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+  		}
+  		contentPanel.add(panel1, new TableLayoutConstraints(0, 0, 0, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  		//======== scrollPane1 ========
+  		{
+  			scrollPane1.setBorder(new TitledBorder("System.out - displays all status and progress messages, etc."));
+  			scrollPane1.setOpaque(false);
+
+  			//---- ttaStatus ----
+  			ttaStatus.setBorder(Borders.createEmptyBorder("1dlu, 1dlu, 1dlu, 1dlu"));
+  			ttaStatus.setToolTipText("<html>Task progress updates (messages) are displayed here,<br>along with any other output generated by the Task.<html>");
+  			scrollPane1.setViewportView(ttaStatus);
+  		}
+  		// Change This
+  		contentPanel.add(scrollPane1, new TableLayoutConstraints(0, 1, 0, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  		//======== panel2 ========
+  		{
+  			panel2.setOpaque(false);
+  			panel2.setBorder(new CompoundBorder(
+  				new TitledBorder("Status - control progress reporting"),
+  				Borders.DLU2_BORDER));
+  			
+  			panel2.setLayout(new TableLayout(new double[][] {
+  				{0.45, TableLayout.FILL, 0.45},
+  				{TableLayout.PREFERRED, TableLayout.PREFERRED}}));
+  			((TableLayout)panel2.getLayout()).setHGap(5);
+  			((TableLayout)panel2.getLayout()).setVGap(5);
+
+  			//======== panel3 ========
+  			{
+  				panel3.setOpaque(false);
+  				panel3.setLayout(new GridLayout(1, 2));
+
+  				//---- checkboxRecvStatus ----
+  				checkboxRecvStatus.setText("Enable \"Recieve\"");
+  				checkboxRecvStatus.setOpaque(false);
+  				checkboxRecvStatus.setToolTipText("Task will fire \"send\" status updates");
+  				checkboxRecvStatus.setSelected(true);
+  				//panel3.add(checkboxRecvStatus);
+
+  				//---- checkboxSendStatus ----
+  				checkboxSendStatus.setText("Enable \"Send\"");
+  				checkboxSendStatus.setOpaque(false);
+  				checkboxSendStatus.setToolTipText("Task will fire \"recieve\" status updates");
+  				//panel3.add(checkboxSendStatus);
+  			}
+  			panel2.add(panel3, new TableLayoutConstraints(0, 0, 0, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- ttfProgressMsg ----
+  			ttfProgressMsg.setText("Loading map from Google Static Maps");
+  			ttfProgressMsg.setToolTipText("Set the task progress message here");
+  			//panel2.add(ttfProgressMsg, new TableLayoutConstraints(2, 0, 2, 0, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- progressBar ----
+  			progressBar.setStringPainted(true);
+  			progressBar.setString("progress %");
+  			progressBar.setToolTipText("% progress is displayed here");
+  			//panel2.add(progressBar, new TableLayoutConstraints(0, 1, 0, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+
+  			//---- lblProgressStatus ----
+  			lblProgressStatus.setText("task status listener");
+  			lblProgressStatus.setHorizontalTextPosition(SwingConstants.LEFT);
+  			lblProgressStatus.setHorizontalAlignment(SwingConstants.LEFT);
+  			lblProgressStatus.setToolTipText("Task status messages are displayed here when the task runs");
+  			//panel2.add(lblProgressStatus, new TableLayoutConstraints(2, 1, 2, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+  		}
+  		contentPanel.add(panel2, new TableLayoutConstraints(0, 2, 0, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+  	}
+  	dialogPane.add(contentPanel, BorderLayout.CENTER);
+  }
+  contentPane.add(dialogPane, BorderLayout.CENTER);
+  setSize(675, 485);
+  setLocationRelativeTo(null);
+  // JFormDesigner - End of component initialization  //GEN-END:initComponents
 }
-
 
 // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 // Generated using JFormDesigner non-commercial license

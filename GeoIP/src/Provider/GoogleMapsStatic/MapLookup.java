@@ -143,11 +143,11 @@ private void _validateParams(int sizeW, int sizeH, int zoom) {
   if (zoom < ZoomMin || zoom > ZoomMax)
     throw new IllegalArgumentException("zoom value is out of range [" + ZoomMin + "-" + ZoomMax + "]");
 
-  if (sizeW < SizeMin || sizeW > SizeMax)
+ /* if (sizeW < SizeMin || sizeW > SizeMax)
     throw new IllegalArgumentException("width is out of range [" + SizeMin + "-" + SizeMax + "]");
 
   if (sizeH < SizeMin || sizeH > SizeMax)
-    throw new IllegalArgumentException("height is out of range [" + SizeMin + "-" + SizeMax + "]");
+    throw new IllegalArgumentException("height is out of range [" + SizeMin + "-" + SizeMax + "]"); */
 }
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
