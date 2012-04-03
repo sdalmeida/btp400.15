@@ -8,7 +8,12 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.Toolkit;
 import java.io.*;
-
+/**
+ * 
+ * @author	This guy
+ * @url		http://www.javapractices.com/topic/TopicAction.do?Id=82
+ *
+ */
 public final class TextTransfer implements ClipboardOwner{
 
 	public static void main (String...  aArguments ){
