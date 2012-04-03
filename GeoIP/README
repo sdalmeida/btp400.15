@@ -8,12 +8,20 @@
 How to use it:
 
 - Download the whole project and import it ( duhh )
-- The nessesary libraries are not included. <--- Yet... I have plans to do so
+- Use ECLIPSE!
+- The nessesary libraries are included!
+- Download the Libs folder from src
+- Include those jars
 - Press Run
 - ?????
 - Profit!
 
 
-What are the features
+How to use it?
 
-Remind me to update this.
+- Put desired Lat and Long values
+- Press "Get Map"
+- You can either press Hybrid, Terrain, Satellite or Normal (Normal will be default!)
+- Zoom on the left
+- To view the image in google press File > Copy URL to Clipboard
+- Open Chrome and paste link  
