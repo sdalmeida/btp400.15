@@ -75,7 +75,8 @@ public class SampleApp extends JFrame {
 		_setupTask();
 	}
 
-	/** create a test task and wire it up with a task handler that dumps output to the textarea */
+	/** 
+	 * create a test task and wire it up with a task handler that dumps output to the textarea */
 	@SuppressWarnings("unchecked")
 	private void _setupTask() {
 
@@ -195,6 +196,9 @@ public class SampleApp extends JFrame {
 		return hook;
 	}
 
+	/**
+	 * This will load the google image on to the panel3
+	 */
 	private void _displayImgInFrame() {
 		slider1 = new JSlider();
 
@@ -226,6 +230,9 @@ public class SampleApp extends JFrame {
 		panel1.updateUI();
 	}
 
+	/**
+	 * Displaying Response in Frame - Not used!
+	 */
 	private void _displayRespStrInFrame() {
 
 		final JFrame frame = new JFrame("Google Static Map - Error");
@@ -263,6 +270,10 @@ public class SampleApp extends JFrame {
 		}
 	}
 
+	/**
+	 * Will cause a chain build
+	 * Run this when all info are valid!
+	 */
 	private void startTaskAction() {
 		try {
 			_task.execute();
@@ -278,6 +289,9 @@ public class SampleApp extends JFrame {
 		doInit();
 	}
 
+	/**
+	 * Quit current App
+	 */
 	private void quitProgram() {
 		_task.shutdown();
 		System.exit(0);
@@ -286,54 +300,33 @@ public class SampleApp extends JFrame {
 
 	private void initComponents() {
 
-		menuBar1 = new JMenuBar();
-		menu1 = new JMenu();
-		menuItem1 = new JMenuItem();
-		panel1 = new JPanel();
-		slider1 = new JSlider();
-		label1 = new JLabel();
-		panel2 = new JPanel();
-		button1 = new JButton();
-		button2 = new JButton();
-		button3 = new JButton();
-		button4 = new JButton();
-		label2 = new JLabel();
-		label3 = new JLabel();
-
 		ttfLat		= new JTextField();
 		btnGetMap	= new JButton();
 		ttfLon		= new JTextField();
 		ttfZoom		= new JTextField("15");
 		panel1		= new JPanel();
-		panel3		= new JPanel();
 		panel2		= new JPanel();
-		button2		= new JButton();
-		button3		= new JButton();
-		button4		= new JButton();
 		imgLbl		= new JLabel();
-
+		menuBar1 	= new JMenuBar();
+		menu1 		= new JMenu();
+		menuItem1 	= new JMenuItem();
+		slider1 	= new JSlider();
+		button1 	= new JButton();
+		button2 	= new JButton();
+		button3 	= new JButton();
+		button4 	= new JButton();
+		label2 		= new JLabel();
+		label3 		= new JLabel();
+		button9 	= new JButton();
+		button7 	= new JButton();
+		button8 	= new JButton();
+		button6 	= new JButton();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		// Generated using JFormDesigner Evaluation license - Simon Almeida
-		menuBar1 = new JMenuBar();
-		menu1 = new JMenu();
-		menuItem1 = new JMenuItem();
-		panel1 = new JPanel();
-		slider1 = new JSlider();
-		label1 = new JLabel();
-		panel2 = new JPanel();
-		button1 = new JButton();
-		button2 = new JButton();
-		button3 = new JButton();
-		button4 = new JButton();
-		label2 = new JLabel();
-		label3 = new JLabel();
-		button5 = new JButton();
-		button9 = new JButton();
-		button7 = new JButton();
-		button8 = new JButton();
-		button6 = new JButton();
+
 
 		//======== this ========
 		Container contentPane = getContentPane();
@@ -361,10 +354,10 @@ public class SampleApp extends JFrame {
 							clipboard.setClipboardContents(MapLookup.sb.toString());
 							System.out.println(clipboard.getClipboardContents());
 							JOptionPane.showMessageDialog(getContentPane(),
-								    "Copied Map to Clipboard!");
+									"Copied Map to Clipboard!");
 						}else{
 							JOptionPane.showMessageDialog(getContentPane(),
-								    "Please Get Map First!","Error!", JOptionPane.ERROR_MESSAGE);
+									"Please Get Map First!","Error!", JOptionPane.ERROR_MESSAGE);
 						}
 					}
 				});
@@ -554,30 +547,25 @@ public class SampleApp extends JFrame {
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	// Generated using JFormDesigner non-commercial license
 	private JPanel panel1;
-	private JTextField ttfLat;
-	private JButton btnGetMap;
-	private JTextField ttfLon;
-	private JTextField ttfZoom;
 	private JPanel panel2;
-	private JPanel panel3;
+	private JLabel imgLbl;
+	private JLabel label2;
+	private JLabel label3;
+	private JSlider slider1;
+	private JButton button1;
 	private JButton button2;
 	private JButton button3;
 	private JButton button4;
-	private JLabel imgLbl;
-
-	private JSlider slider1;
-	private JLabel label1;
-	private JButton button1;
-
-	private JMenuBar menuBar1;
-	private JMenu menu1;
-	private JMenuItem menuItem1;
-	private JLabel label2;
-	private JLabel label3;
-	private JButton button5;
-	private JButton button9;
+	private JButton button6;
 	private JButton button7;
 	private JButton button8;
-	private JButton button6;
+	private JButton button9;
+	private JButton btnGetMap;
+	private JTextField ttfLon;
+	private JTextField ttfZoom;
+	private JTextField ttfLat;
+	private JMenuItem menuItem1;
+	private JMenuBar menuBar1;
+	private JMenu menu1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
