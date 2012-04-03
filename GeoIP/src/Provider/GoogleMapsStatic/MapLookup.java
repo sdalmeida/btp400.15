@@ -30,10 +30,12 @@ public static final int ZoomMax = 19;
 public static final int ZoomMin = 0;
 public static final int ZoomDefault = 10;
 
+public static String MapType = "roadmap";
+public static StringBuilder sb;
 public static final String SizeKey = "size";
 public static final String SizeSeparator = "x";
 public static final int SizeMin = 10;
-public static final int SizeMax = 512;
+public static final int SizeMax = 373;
 public static final int SizeDefault = SizeMax;
 
 public static final String MarkerSeparator = "|";
@@ -55,6 +57,9 @@ public static void setLicenseKey(String lic) {
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // methods
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+public static void setType(String type){
+	MapType = type;
+}
 public static String getMap(double lat, double lon) {
   return getMap(lat, lon, SizeMax, SizeMax);
 }
@@ -78,11 +83,11 @@ public static String getMap(double lat, double lon, MapMarker... markers) {
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // param handling and uri generation
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-public String getURI(double lat, double lon, int sizeW, int sizeH, MapMarker... markers) {
+public String getURI(double lat, double lon, int sizeW, int sizeH, MapMarker... markers ) {
   _validateParams(sizeW, sizeH, ZoomDefault);
 
   // generate the URI
-  StringBuilder sb = new StringBuilder();
+  sb = new StringBuilder();
   sb.append(GmapStaticURI);
 
   // size key
@@ -108,7 +113,7 @@ public String getURI(double lat, double lon, int sizeW, int sizeH, int zoom) {
   _validateParams(sizeW, sizeH, zoom);
 
   // generate the URI
-  StringBuilder sb = new StringBuilder();
+  sb = new StringBuilder();
   sb.append(GmapStaticURI);
 
   // center key
@@ -120,7 +125,11 @@ public String getURI(double lat, double lon, int sizeW, int sizeH, int zoom) {
   sb.
       append("&").
       append(ZoomKey).append("=").append(zoom);
-
+  
+  // Map Type
+  sb.
+	append("&").
+	append("maptype").append("=").append(MapType);
   // size key
   sb.
       append("&").
